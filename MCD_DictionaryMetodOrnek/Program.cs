@@ -34,10 +34,32 @@ namespace MCD_DictionaryMetodOrnek
             else
             {
                 Console.WriteLine("Bu değer koleksiyonda yoktur. Eklemek için aşağıdaki bilgileri doldurunuz.");
-                Console.WriteLine(ad + " isimli kişinin doum yılını giriniz: ");
+                Console.WriteLine(ad + " isimli kişinin doğum yılını giriniz: ");
                 int dogumYili = int.Parse(Console.ReadLine());
                 KisilerveDTarihleri.Add(ad, dogumYili);
+                Listele(KisilerveDTarihleri);
             }
+        }
+
+        static void Listele(Dictionary<string, int> liste)
+        {
+            Console.Clear();
+            Console.WriteLine("Koleksiyonda " + liste.Count + " adet kayıt mevcuttur.");
+
+            //Dictionarydeki değerleri yazdırdık
+            foreach (KeyValuePair<string,int> item in liste)
+            {
+                Console.WriteLine(item.Key + "\t" + item.Value);
+            }
+            foreach (var item in liste.Keys)
+            {
+                Console.WriteLine(item);
+            }
+            foreach (var item in liste.Values)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
         }
     }
 }
